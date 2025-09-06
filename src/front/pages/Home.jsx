@@ -1,8 +1,5 @@
 import React, { useEffect } from "react"
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
-import { loadStripe } from "@stripe/stripe-js";
-import { Elements } from "@stripe/react-stripe-js";
-import { CheckoutForm } from "../components/CheckoutForm.jsx";
 import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
@@ -62,7 +59,6 @@ export const Home = () => {
 
 	}
 
-	//const stripePromise = loadStripe("pk_test_51QwQ7HL5pqbB2Ow0nHepZav0nRGJ0WcbfXAFRa6gSNBfeJB0soHi2SnlmDgJ1n9ZP4rpx69XdNW7AL2B7sdSKFRc00Tb2yhFMw")
 
 	const totalAmount = 1500; // Aquí calcularías el total real
 	const currency = "eur";
@@ -78,9 +74,7 @@ export const Home = () => {
 	return (
 		<div className="text-center mt-5">
 			<h1 className="display-4">Stripe </h1>
-			{/* <Elements stripe={stripePromise}>
-				<CheckoutForm />
-			</Elements> */}
+			
 			
 			<p>Total: {totalCarrito()} {currency.toUpperCase()}</p>
 			<button onClick={handleCheckout}>Comprar</button>

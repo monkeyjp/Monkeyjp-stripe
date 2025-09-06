@@ -4,7 +4,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import { CheckoutForm } from "../components/CheckoutForm.jsx";
 
-const stripePromise = loadStripe("pk_test_51QwQ7HL5pqbB2Ow0nHepZav0nRGJ0WcbfXAFRa6gSNBfeJB0soHi2SnlmDgJ1n9ZP4rpx69XdNW7AL2B7sdSKFRc00Tb2yhFMw");
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PK);
 
 export const PaymentPage = () => {
     const { totalAmount, currency } = useParams();

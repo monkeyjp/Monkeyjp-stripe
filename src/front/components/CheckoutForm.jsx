@@ -1,5 +1,5 @@
-import { CardElement, useStripe, useElements, AddressElement, CardNumberElement, PaymentElement } from "@stripe/react-stripe-js"
-import { useEffect, useState } from "react"
+import { useStripe, useElements, PaymentElement } from "@stripe/react-stripe-js"
+import { useState } from "react"
 
 export const CheckoutForm = () => {
     const stripe = useStripe()
@@ -31,12 +31,18 @@ export const CheckoutForm = () => {
             // Puedes verificar el estado de la confirmación de pago
             if (result.paymentIntent && result.paymentIntent.status === 'succeeded') {
                 setPaymentStatus("Pago exitoso!");
+                setTimeout(() => {
+                    alert("Pago Exitoso")
+                }, 1000)
                 console.log("pago exitoso");
 
                 // Aquí puedes realizar otras acciones, como actualizar el estado de la aplicación
                 // o mostrar un modal de agradecimiento sin redirigir.
             } else {
                 setPaymentStatus("El pago no se pudo completar.");
+                setTimeout(() => {
+                    alert("Algo salio mal")
+                }, 1000)
             }
         }
     };

@@ -6,13 +6,14 @@ from api.models import db, User
 from api.utils import generate_sitemap, APIException
 from flask_cors import CORS
 import stripe
+import os
 
 api = Blueprint('api', __name__)
 
 # Allow CORS requests to this API
 CORS(api)
 
-stripe.api_key = "sk_test_51QwQ7HL5pqbB2Ow0bxdp3sUe1hYM3ZP18WbczYJEzoaOoZelktYw75MLRzBI0VKnF9jNRb7jQ7WVGrGcPHm6vkR500FYsqnnUj"
+stripe.api_key = os.getenv('STRIPE_SK')
 
 
 @api.route('/hello', methods=['POST', 'GET'])
